@@ -1,0 +1,15 @@
+asgiref==3.8.1
+dj-database-url==2.3.0
+Django==4.2.16
+jalali==1.2
+jalali_core==1.0.0
+jdatetime==5.0.0
+pillow==11.0.0
+python-dotenv==1.0.1
+setuptools==75.4.0
+sqlparse==0.5.3
+typing_extensions==4.12.2
+tzdata==2024.2
+wheel==0.45.0
+psycopg2==2.9.9
+psycopg2-binary==2.9.9
