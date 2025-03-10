@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa-IR" dir="rtl">
+<head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="reservation website dictor details page">
+    <meta name="robots" content="noindex">
+
+    <!-- styles links -->
+    <link rel="stylesheet" href="{% static 'styles/config.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/doctor_details.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
+    <title>شیراز رزرو|رزرو پزشک</title>
+</head>
+<body>
+    <!-- header part starts -->
+    <header class="desktop-header">
+        <img class="logo" src="{% static 'styles/img/logo.png' %}" alt="logo">
+
+        <div class="login-btns-container">
+            <button class="login-btn unavailable"><a href="#">ورود/ثبت نام بیمار</a></button>
+            <button class="login-btn unavailable"><a href="#">ورود پزشک</a></button>
+        </div>
+
+    </header>
+    <!-- header parts end -->
+
+    <!-- main content starts-->
+    <section class="main-content">
+        <!-- right content -->
+        <section class="right-content">
+            <div class="doctors-profile-part main-part">
+                <div class="personal-info-container">
+                    <img class="profile-photo" src="{{doctor.image.url}}" alt="عکس {{doctor.lastname}}">
+                    <div class="personal-info">
+                        <h3 class="part-title">دکتر {{doctor.first_name}} {{doctor.last_name}}</h3>
+                        <h4 class="experties">تخصص {{doctor.specialty}}</h4>
+                        <h4 class="medical-system-code-title">کد نظام پزشکی: <span class="medical-system-code">{{doctor.medical_code}}</span></h4>
+                    </div>
+                </div>
+                <div class="rating-part">
+                    <div class="rating-part-item left-border">
+                        <img class="rating-icon" src="{% static 'styles/img/Star (2).svg' %} " alt="star">
+                        <span class="rating-txt">4.9 (4126نظر)</span>
+                    </div>
+
+                    <div class="rating-part-item">
+                        <img class="rating-icon" src="{% static 'styles/img/Thumbs up (1).svg' %}" alt="thumb">
+                        <span class="rating-txt">98%</span>
+                    </div>
+
+                    <div class="rating-part-item right-border">
+                        <img class="rating-icon" src="{% static 'styles/img/Check circle (1).svg' %}" alt="successful icon">
+                        <span class="rating-txt">47986 نوبت موفق</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-doctor-part main-part">
+                <h2 class="part-title">درباره دکتر {{doctor.last_name}} {{doctor.first_name}}</h2>
+                <p class="about-doctor">{{doctor.description}}</p>
+            </div>
+        </section>
+
+        <!-- left content -->
+        <section class="left-content">
+            <div class="reservation-part main-part">
+                <h2 class="part-title reservation-title">نوبت دهی اينترنتی دکتر {{doctor.last_name}} {{doctor.first_name}}</h2>
+
+                <div class="address-part">
+                    <div class="address-part-item">
+                        <img src="{% static 'styles/img/Location.svg' %}" alt="location icon">
+                        <p><span>آدرس : </span>{{doctor.clinic_addresses}}</p>
+                    </div>
+    
+                    <div class="address-part-item">
+                        <img src="{% static 'styles/img/Phone.svg' %}" alt="phone number icon">
+                        <p><span>شماره تماس:</span>{{doctor.phone_number}}</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="dates-times">
+                    <h5 class="dates-head">تاريخچه نوبت ها :</h5>
+                    <!-- dates part starts -->
+                    <div class="dates-cards-container">
+                        {% for entry in processed_times %}
+                            <div class="date-card">
+                            <div class="date-card-info {% if entry.status == 'تکمیل' %}unavailable {% endif %}">
+                                <h3 class="date">{{entry.jalali_date}}</h3>
+                                <span class="status">{{entry.status}}</span>
+                            </div>
+                            <button id="btn{{entry.date.id}}"  class="should-select-btn date-card-btn {% if entry.status == 'تکمیل' %}unavailable {% endif %}">مشاهده</button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- dates part ends -->
+
+                    {% for date in processed_times %}
+                    <div id="div{{date.date.id}}" class="time-part hidden  should-select-div">
+                        <h5 class="time-title">براي رزرو روي بازه زماني مورد نظر کليک کنيد<img class="close-time" src="{% static 'styles/img/Arrow Down Contained 3 (1).svg' %}" alt="arrow down icon"></h5>
+                        <div class="times-cards-container">
+                            {% for slot in date.hour %}
+                                {% if slot.available %}
+                                    <a class="time-card " href="{% url 'patient_reservation' %}?time={{slot.id}}">{{slot.jalali_time}}</a>
+                                {% else %}
+                                 <a class="time-card unavailable" >{{slot.jalali_time}}</a>
+                                {% endif %}
+                           {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- main content ends -->
+    <script src="{% static 'js codes/doctor details.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa-IR" dir="rtl">
+<head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="reservation website report page">
+    <meta name="robots" content="noindex">
+
+    <!-- styles links -->
+    <link rel="stylesheet" href="{% static 'styles/report.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/config.css' %}">
+
+    <title>شیراز رزرو|گزارش</title>
+
+</head>
+<body>
+    <!-- header part starts -->
+    <header class="desktop-header">
+        <img class="logo" src="{% static 'styles/img/logo.png' %}" alt="logo">
+
+        <div class="login-btns-container">
+            <button class="login-btn unavailable"><a href="#">ورود/ثبت نام بیمار</a></button>
+            <button class="login-btn unavailable"><a href="#">ثبت نام پزشک</a></button>
+        </div>
+
+    </header>
+    <!-- header parts end -->
+
+    <!-- main content starts-->
+    <section class="main-content">
+        <div class="report-container">
+            <p class="report-text">
+                {{patient_name}} نوبت شما براي {{date}} {{time}} با {{doctor_name}} با موفقيت
+                ثبت شد.<br>
+                لطفا راس ساعت مشخص شده در مطب پزشک حاضر شويد.<br>
+                حق ویزیت را در مطب بپردازید.
+            </p>
+            <div class="report-code-container">
+                <span class="report-code-label">کد نوبت: <span class="report-code">{{appointment_code}}</span></span>
+                <img class="tick-img" src="{% static 'styles/img/images__1_-removebg-preview.png' %}" alt="تیک">
+            </div>
+            <div class="back-btn-container">
+                <button class="back-btn"><a href="{% url 'home' %}">بازگشت</a></button>
+            </div>
+        </div>
+
+    </section>
+    <!-- main content ends -->
+</body>
+</html>

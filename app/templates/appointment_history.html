@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa-IR" dir="rtl">
+<head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="reservation website patients appointment history page">
+    <meta name="robots" content="noindex">
+
+    <!-- styles links -->
+    <link rel="stylesheet" href="{% static 'styles/config.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/appointment history.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
+    <title>شیراز رزرو|تاریخچه نویت ها</title>  
+</head>
+<body>
+    <!-- header part starts -->
+    <header class="desktop-header">
+        <img class="logo" src="{% static 'styles/img/logo.png' %}" alt="logo">
+
+        <div class="login-btns-container">
+            <button class="login-btn unavailable"><a href="#">ورود/ثبت نام بیمار</a></button>
+            <button class="login-btn unavailable"><a href="#">ورود پزشک</a></button>
+        </div>
+
+    </header>
+    <!-- header parts end -->
+
+    <!-- main content start -->
+    <section class="main-content">
+        <!-- history part starts -->
+        <div class="history-part-container">
+            <div class="history-title-container">
+                <img src="{% static 'styles/img/Calendar.svg' %}" alt="calendar">
+                <h4 class="history-title">تاريخچه نوبت ها</h4>
+            </div>
+            <div class="table-container">
+                <!-- table -->
+                <table class="patient-appointment-history">
+                    <!-- table head -->
+                    <thead>
+                        <tr>
+                            <th class="patient-name table-header1">نام بیمار:  <span class="patient-name">{{patient.national_id}}</span></th>
+                        </tr>
+                        <tr>
+                            <th class="table-header2 right-border-style-fixing">تاریخ</th>
+                            <th class="table-header2">ساعت</th>
+                            <th class="table-header2">پزشک</th>
+                            <th class="table-header2">تخصص</th>
+                            <th class="table-header2 left-border-style-fixing">کد نظام</th>
+                        </tr>
+                    </thead>
+                    <!-- table content -->
+                    {% for appointment in appointments %}
+                        <tr>
+                            <td class="right-border-style-fixing">{{appointment.time.doctor_date.jalali_date}}</td>
+                            <td>{{appointment.time.jalali_time}}</td>
+                            <td>دکتر {{appointment.doctor.first_name}} {{appointment.doctor.last_name}}</td>
+                            <td>{{appointment.doctor.specialty}}</td>
+                            <td class="left-border-style-fixing">{{appointment.doctor.medical_code}}</td>
+                        </tr>
+
+                    {% endfor %}}
+                </table>
+            </div>
+        </div>
+        <!-- history part ends -->
+
+        <!-- support part starts -->
+        <div class="support-part-container">
+            <img src="{% static 'styles/img/d2-min 1.png' %}" alt="image">
+            
+            <div class="text-part">
+                <div class="text-part-main-content">
+                    <p class="sup-text">توجه: در صورت بروز هرگونه مشکل با پشتيباني تماس بگيريد</p>
+                    <div class="call-container">
+                        <img src="{% static 'styles/img/Phone.svg' %}" alt="call">
+                        <a href="#09102331448" class="phone-number">09102331448</a>
+                    </div>
+                </div>
+                <div class="back-btn-container">
+                    <button class="back-btn"><a href="{% url 'home' %}">بازگشت</a></button>
+                </div>
+            </div>
+        </div>
+        <!-- support part ends -->
+    </section>
+    <!-- main content ends -->
+</body>
+</html>

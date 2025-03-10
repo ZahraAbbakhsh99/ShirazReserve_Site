@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa-IR" dir="rtl">
+<head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="reservation website home">
+    <meta name="robots" content="noindex">
+
+    <!-- styles links -->
+    <link rel="stylesheet" href="{% static 'styles/reservation.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/config.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
+    <title>شیراز رزرو|صفحه رزرو</title>
+
+</head>
+<body>
+    <!-- header part starts -->
+    <header class="desktop-header">
+        <img class="logo" src="{% static 'styles/img/logo.png' %}" alt="logo">
+
+        <div class="login-btns-container">
+            <button class="login-btn unavailable"><a href="#">ورود/ثبت نام بیمار</a></button>
+            <button class="login-btn unavailable"><a href="#">ثبت نام پزشک</a></button>
+        </div>
+
+    </header>
+    <!-- header parts end -->
+
+    <!-- main content starts -->
+    <section class="main-content">
+        <div class="main-container">
+            <div class="title-container"><img src="{% static 'styles/img/person.svg' %}" alt="person icon"><h2 class="reservation-content-title">اطلاعات بیمار</h2></div>
+            <div class="form-container">
+                <form class="reservation-form" method="POST" action="{% url 'report_view' time %}" >
+                   {% csrf_token %}
+                    <div class="form-item-container">
+                        <label class="label" for="name">نام و نام
+                            خانوادگی</label>
+                        <input class="text-input" type="text" id="name" name="name" placeholder="امیر امیری" required>
+                    </div>
+
+                    <div class="form-item-container">
+                        <label class="label" for="id">کدملی</label>
+                        <input class="text-input" type="text" id="id" name="id" placeholder="0041111111" required>
+                    </div>
+
+                    <div class="form-item-container">
+                        <label class="label" for="insurance">بیمه</label>
+                        <select name="insurance" class="drop-down-input" id="insurance" required>
+                            <option value="" disabled selected>انتخاب کنید</option>
+                            {% for code, name in insurance_choices %}
+                            <option value="{{code}}">{{name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-item-container">
+                        <span class="label" class="gender">جنسیت</span>
+                        <div class="option-container">
+                            <div>
+                                <label class="option" for="male">آقا</label>
+                                <input type="radio" id="male" name="gender" value="آقا" required>
+                            </div>
+                            <div>
+                                <label class="option" for="female">خانم</label>
+                                <input type="radio" id="female" name="gender" value="خانم" required>
+                            </div>
+
+                        </div>
+                    </div>
+            
+                    <div class="form-item-container">
+                        <label class="label" for="phone">تلفن همراه</label>
+                        <input class="text-input" type="tel" id="phone" name="phone" placeholder="09909817161" required>
+                    </div>
+
+                    <div class="submit-btn-container">
+                        <input class="submit-btn" type="submit" value="ثبت نوبت">
+                    </div>
+                </form>
+                <!-- error pop up starts -->
+                    {% if error %}
+                        <div class="error-popup">
+                            <img class="x-mark-img" src="{% static 'styles/img/X mark.png' %}" alt="x mark">
+
+                            <h3 class="error-title">خطا!!!</h3>
+                            <p class="error-text">{{error}}</p>
+                            <a class="error-btn" href="#">تلاش مجدد</a>
+                        </div>
+                    {% endif %}
+                    <!-- error pop up ends -->
+
+                <img src="{% static 'styles/img/Steps-to-Create-a-Patient-Appointment-Scheduling-System-Banner 1.png' %}" alt="image">
+                
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js codes/main.js' %}"></script>
+</body>
+</html>
