@@ -1,0 +1,197 @@
+/* scrollbar customization */
+::-webkit-scrollbar {
+    width: 5px;
+}     
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 30px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    font-family: 'nazanin';
+}
+
+/* unvailable */
+.unavailable{
+    background-color: var(--gray) !important;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* hidden/visible */
+.hidden{
+    display: none !important;
+}
+
+
+/* button */
+button{
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+.login-btn a{
+    cursor: not-allowed;
+}
+
+button:hover{
+    transform: scale(1.01);
+}
+
+.main-content{
+    margin: 60px 36px;
+}
+
+/* header styles */
+.desktop-header{
+    height: 176px;
+    padding: 0 36px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--black);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.logo{
+    height: 98px;
+}
+
+.login-btns-container{
+    display: flex;
+    flex-direction: row;
+    gap: 42px;
+}
+
+.login-btn{
+    display: flex;
+    width: 184px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--white-color);
+    background-color: var(--tertiary-color);
+}
+
+.login-btn a{
+    font-size: var(--body-size);
+    font-weight: var(--regular);
+}
+
+/* footer styles */
+.footer{
+    padding: 32px 67px;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 260px;
+}
+
+.footer a{
+    color: var(--white-color);
+    font-size: var(--small-title-size);
+    font-weight: var(--regular);
+}
+
+.footer-links{
+    justify-content: flex-start
+}
+
+.contact-us{
+    justify-content: center;
+}
+
+.premissions{
+    justify-content: flex-end;
+}
+
+.footer-links, .contact-way-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+}
+
+.contact-us-title{
+    margin-bottom: 15px;
+    color: var(--white-color);
+    font-size: var(--small-title-size);
+    font-weight: var(--regular);
+}
+
+.contact-way-container a img{
+    margin-right: 10px;
+}
+
+.contact-way-container a{
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* pop up styles */
+.error-popup{
+    background-color: var(--white-color);
+    position: absolute;
+    top: 80px;
+    left: 550px;
+    width: 400px;
+    border-radius: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.x-mark-img{
+    width: 80px;
+}
+
+.error-title{
+    font-weight: var(--bold);
+    font-size: var(--small-title-size);
+    color: var(--red);
+}
+
+.error-text{
+    font-size: var(--body-size);
+    font-weight: var(--regular);
+    color: var(--black);
+}
+
+.error-btn{
+    background-color: var(--red);
+    color: var(--white-color);
+    padding: 10px 25px;
+    border-radius: 40px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); 
+    font-size: var(--small-title2-size);
+}
+
+.error-btn:hover{
+    transform: scale(1.1);
+}
+
+

@@ -1,0 +1,221 @@
+.main-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-part{
+    background-color: var(--white-color);
+    padding: 25px 30px;
+    border-radius: 40px;
+}
+
+.right-content{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.left-content{
+    width: 63%;
+}
+
+.part-title{
+    font-size: var(--small-title-size);
+    font-weight: var(--bold);
+}
+
+.medical-system-code-title, .experties{
+    font-size: var(--small-title2-size);
+    font-weight: var(--regular);
+}
+
+/* profile part styles */
+.doctors-profile-part{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.personal-info-container{
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+}
+
+.personal-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* rating part in profile part:) */
+.rating-part{
+    background-color: var(--background-color);
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.rating-part-item{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.rating-icon{
+    height: 28px;
+}
+
+.rating-txt{
+    font-size: var(--body-size);
+    font-weight: var(--regular);
+}
+
+.left-border{
+    border-left: 1px solid var(--black);
+}
+
+.right-border{
+    border-right: 1px solid var(--black);
+}
+
+
+/* about doctor part */
+.about-doctor{
+    font-size: var(--body-size);
+    font-weight: var(--regular);
+    text-align: justify;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+/* reservation part */
+.reservation-title{
+    margin-right: 35px;
+}
+
+/* address part */
+.address-part{
+    margin: 25px 0 15px 0;
+    background-color: var(--background-color);
+    border-radius: 40px;
+    padding: 1px 28px;
+}
+
+.address-part-item{
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    font-size: var(--small-title2-size);
+    font-weight: var(--regular);
+}
+
+/* dates and times part */
+hr{
+    width: 90%;
+}
+
+.dates-head{
+    font-size:var(--small-title2-size);
+    font-weight: var(--regular);
+    margin: 0 60px 60px 0; 
+    
+}
+
+.dates-cards-container{
+    display: flex;
+    overflow: scroll;
+    gap: 45px;
+    height: 150px;
+}
+
+.dates-cards-container::-webkit-scrollbar {
+    height:3px;
+}
+
+.date-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.date-card-info{
+    width: 150px;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: var(--small-title-size);
+    font-weight: var(--bold);
+}
+
+.date-card-btn{
+    border: unset;
+    width: 102px;
+    height: 30px;
+    font-size: var(--small-title-size);
+    font-weight: var(--bold);
+    background-color: var(--green);
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.20);
+}
+
+
+/* times part */
+.time-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0 50px 0;
+    font-size: var(--small-title2-size);
+    font-weight: var(--regular);
+}
+
+.times-cards-container {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(5, 0.1fr); /* 5 narrow columns */
+    gap: 15px; /* Spacing between cards */
+    justify-content: center; /* Center the entire grid in the container */
+    justify-items: center; /* Center items horizontally within grid cells */
+}
+
+
+/* General time card styles */
+.time-card {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--black); /* Text color */
+    font-size: var(--body-size); /* Font size */
+    font-weight: var(--regular);
+    background-color: var(--tertiary-color); /* Light blue background */
+    padding: 3px 15px; /* Spacing inside the card */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.20);
+}
+
+
+.close-time{
+    cursor: pointer;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+.close-time:hover{
+    transform: scale(1.2);
+}
+
+.time-card{
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+.time-card:hover{
+    transform: scale(1.1);
+}
